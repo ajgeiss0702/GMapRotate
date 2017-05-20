@@ -1,6 +1,7 @@
 # GMapRotate
 
 This is a little map rotation addon I made for servers.
+This addon is still in development, and may have some issues. Please report them in the issues tab.
 
 
 # Installation
