@@ -41,6 +41,9 @@ local debug = false
 Do not change anything below this line (unless you know what you are doing!)
 --------------------------------------------------------------------------------
 ]]--
+
+
+
 local mapchanging = 0
 local players = player.GetAll()
 
@@ -88,18 +91,21 @@ local function nextmappick()
 		local nextlevel = GetConVar("nextlevel")
 		--print("Next level: " .. nextlevel:GetString())
 		if nextlevel:GetString() == nextmap then else
-			print("Here is the source: " .. nextlevel:GetString())
-			RunConsoleCommand("nextlevel", nextmap)
-			print (" ")
-			print("ERROR ERROR ERROR ERROR ERROR ERROR ERROR")
-			print("ERROR                               ERROR")
-			print("ERROR    This should not happen!    ERROR")
-			print("ERROR    Report this to aj NOW!     ERROR")
-			print("ERROR    This is a problem with     ERROR")
-			print("ERROR    the map rotator addon.     ERROR")
-			print("ERROR                               ERROR")
-			print("ERROR ERROR ERROR ERROR ERROR ERROR ERROR")
-			print (" ")
+			nextmappick()
+			if nextlevel:GetString() == nextmap then else
+				print("Here is the source: " .. nextlevel:GetString())
+				RunConsoleCommand("nextlevel", nextmap)
+				print (" ")
+				print("ERROR ERROR ERROR ERROR ERROR ERROR ERROR")
+				print("ERROR                               ERROR")
+				print("ERROR    This should not happen!    ERROR")
+				print("ERROR    Report this to aj NOW!     ERROR")
+				print("ERROR    This is a problem with     ERROR")
+				print("ERROR    the map rotator addon.     ERROR")
+				print("ERROR                               ERROR")
+				print("ERROR ERROR ERROR ERROR ERROR ERROR ERROR")
+				print (" ")
+			end
 		end
 		--print(maps[i])
 	end
