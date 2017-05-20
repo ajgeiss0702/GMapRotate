@@ -1,0 +1,12 @@
+{
+	"title"		:	"Map Rotator",
+	"type"		:	"tool",
+	"tags"		:	[ "fun" ],
+	"ignore"	:
+	[
+		"*.psd",
+		"*.vcproj",
+		"*.svn*",
+		"*.DS_Store"
+	]
+}
