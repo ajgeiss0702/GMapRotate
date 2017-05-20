@@ -7,15 +7,16 @@ Auto Map rotator
 
 ]]--
 
-if SERVER then --Ignore this
+if SERVER then --[[Ignore this
 
 
---The maps, it is not limited to just 2, you can have more or less (but not 1 because then this would be useless)
---All maps names should have quotes around them, and commas after the ending quotes
---Here is my example I use for my guesswho server:
+
+The maps, it is not limited to just 2, you can have more or less (but not 1 because then this would be useless)
+All maps names should have quotes around them, and commas after the ending quotes
+Here is my example I use for my guesswho server:
 local maps = {"gm_1950s_town", "gm_arena_submerge", "gm_metro_plaza", "gm_gwpark"}
---MAKE SURE TO PUT YOUR DEFAULT MAP IN HERE, or else it will not work (It does not have to be the first one, but should be in there)
---local maps = {"gm_construct", "gm_flatgrass"}
+MAKE SURE TO PUT YOUR DEFAULT MAP IN HERE, or else it will not work (It does not have to be the first one, but should be in there)--]]
+local maps = {"gm_construct", "gm_flatgrass"}
 
 
 --Amount of time, in seconds, it will announce to the players what the next map will be
