@@ -7,6 +7,8 @@ This addon is still in development, and may have some issues. Please report them
 # Installation
 
 To install this addon, just put the folder into the addons folder.
+NOTE: This addon only works with a gamemode that reloads the map every couple of rounds. This will do nothing in a sandbox server
+Sometime I will add a feature for it to work in sandbox (or other gamemodes) but thats not for a little while
 
 
 # Configuration
