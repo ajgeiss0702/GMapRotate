@@ -5,7 +5,7 @@ This addon is still in development, and may have some issues. Please report them
 
 #Latest Release
 
-[Here is the latest release of the addon (https://github.com/ajgeiss0702/GMapRotate/releases/tag/v0.1-beta)]
+[Here is the latest release of the addon](https://github.com/ajgeiss0702/GMapRotate/releases/tag/v0.1-beta)
 
 
 # Installation
