@@ -44,7 +44,6 @@ Do not change anything below this line (unless you know what you are doing!)
 
 
 
-local mapchanging = 0
 local players = player.GetAll()
 
 
@@ -84,7 +83,6 @@ local function nextmappick()
 					nextmap = maps[i+1]
 					found = true
 					PrintMessage( HUD_PRINTTALK, "The next map will be " .. nextmap)
-					mapchanging = 1
 				end
 			end
 		end
