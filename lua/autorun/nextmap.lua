@@ -88,7 +88,7 @@ local function nextmappick()
 		end
 		local nextlevel = GetConVar("nextlevel")
 		--print("Next level: " .. nextlevel:GetString())
-		if nextlevel:GetString() == nextmap then else
+	--[[	if nextlevel:GetString() == nextmap then else
 			nextmappick()
 			if nextlevel:GetString() == nextmap then else
 				print("Here is the source: " .. nextlevel:GetString())
@@ -104,7 +104,7 @@ local function nextmappick()
 				print("ERROR ERROR ERROR ERROR ERROR ERROR ERROR")
 				print (" ")
 			end
-		end
+		end--]]
 		--print(maps[i])
 	end
 	if found then else
@@ -133,4 +133,18 @@ end
 
 timer.Create( "ServerAnnouncer", AnnounceTime, 0, function()  mapannounce() end )
 
+
+hook.Add( "PlayerSay", "CustomCommands", function( ply, text, public )
+	text = string.lower( text ) -- Make the chat message entirely lowercase
+	
+	
+	if ( text == "!nextmap" ) then
+		ply:ChatPrint( "The next map will be " .. nextmap )
+		--print( "[DEBUG]", "A player typed the radio command!" )
+
+		return ""
+	end 
+	--)
+
+end )
 end
