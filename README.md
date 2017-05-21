@@ -3,7 +3,7 @@
 This is a little map rotation addon I made for servers.
 This addon is still in development, and may have some issues. Please report them in the issues tab.
 
-# Latest Release
+# Download
 
 [Here is the latest release of the addon](https://github.com/ajgeiss0702/GMapRotate/releases/tag/v0.1-beta)
 
