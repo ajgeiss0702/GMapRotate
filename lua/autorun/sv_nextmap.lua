@@ -31,26 +31,26 @@ Made by ajgeiss0702 for AstroGmod GuessWho
 
 
 
-if SERVER then --Ignore this
+--if SERVER then --Ignore this
 
 --Getting Config
-local maps = AMR.maps
-local AnnounceTime = AMR.AnnounceTime
-local debug = AMR.debug
+local mr_AMR_maps = AMR_maps
+local AnnounceTime = AMR_AnnounceTime
+local debug = AMR_debug
+
+--print("maps: " .. tostring(AMR_maps) .. ", announcetime: " .. tostring(AnnounceTime) .. ", debug: " .. tostring(debug))
 
 
 
 
-
-
---check maps
-local maps = file.Find("maps/*.bsp", "GAME")
+--check AMR_maps
+local mapcheck = file.Find("AMR_maps/*.bsp", "GAME")
 local mapvalid = false
-for i,v in maps do
+--for i,v in AMR_maps do
 	
 	
 	
-end
+--end
 
 util.AddNetworkString( "AnnNextMap" )
 local players = player.GetAll()
@@ -63,8 +63,7 @@ local function notifyNextMap(nxtmap)
 	net.Start( "AnnNextMap" )
 		net.WriteString( nxtmap )
 	net.Broadcast()
-	 end
-end )
+
 	--end
 	
 --he he 69
@@ -81,14 +80,14 @@ local function nextmappick()
 	found = false
 	for i=1, 100 do
 		
-		if maps[i] == nil then
-			else if curmap == maps[i] then
+		if mr_AMR_maps[i] == nil then
+			else if curmap == AMR_maps[i] then
 				if debug then
-					print("[DEBUG] Next map should be " .. maps[i+1])
+					print("[DEBUG] Next map should be " .. AMR_maps[i+1])
 				end
-				if maps[i+1] == nil then
-					RunConsoleCommand("nextlevel", maps[1])
-					nextmap = maps[1]
+				if mr_AMR_maps[i+1] == nil then
+					RunConsoleCommand("nextlevel", mr_AMR_maps[1])
+					nextmap = mr_AMR_maps[1]
 					found = true
 					PrintMessage( HUD_PRINTTALK, "The next map will be " .. nextmap)
 					----[[
@@ -97,10 +96,17 @@ local function nextmappick()
 
 					
 					--]]--
+					
+					
+					
+					
+					
+					
+					
 					mapchanging = 1
 				else
-					RunConsoleCommand("nextlevel", maps[i+1])
-					nextmap = maps[i+1]
+					RunConsoleCommand("nextlevel", mr_AMR_maps[i+1])
+					nextmap = mr_AMR_maps[i+1]
 					found = true
 					PrintMessage( HUD_PRINTTALK, "The next map will be " .. nextmap)
 					notifyNextMap(nextmap)
@@ -126,11 +132,16 @@ local function nextmappick()
 				print (" ")
 			end
 		end--]]
-		--print(maps[i])
+		--print(AMR_maps[i])
+		
+		
+		
+		
+		
 	end
 	if found then else
-	RunConsoleCommand("nextlevel",maps[1])
-			nextmap = maps[1]
+	RunConsoleCommand("nextlevel", mr_AMR_maps[1])
+			nextmap = AMR_maps[1]
 	end
 	
 end
@@ -168,4 +179,6 @@ hook.Add( "PlayerSay", "CustomCommands", function( ply, text, public )
 	--)
 
 end )
-end
+
+
+

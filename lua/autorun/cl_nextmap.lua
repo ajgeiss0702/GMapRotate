@@ -21,7 +21,7 @@ Made by ajgeiss0702 for AstroGmod GuessWho
 ((--------------------------------------------------------------------------------]]
 
 
-
+if CLIENT then
 
 
 net.Receive( "AnnNextMap", function()
@@ -31,6 +31,7 @@ net.Receive( "AnnNextMap", function()
 	surface.PlaySound( "buttons/button15.wav" )
 	Msg( nm_msg .. "\n" )
 end )
+end
 
 
 
