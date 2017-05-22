@@ -21,5 +21,4 @@ Sometime I will add a feature for it to work in sandbox (or other gamemodes) but
 
 # Configuration
 
-The configuration is in the first couple of lines in lua/autorun/nextmap.lua
-There are instructions in there on how to use it.
+The configuration is pretty simple. just go to lua/autorun/sv_config.lua, and everything should be explained in there.

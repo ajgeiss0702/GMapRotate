@@ -2,32 +2,7 @@
 
 
 Auto Map rotator
-
-
-
-]]--
-
-if SERVER then --[[Ignore this
-
-
-
-The maps, it is not limited to just 2, you can have more or less (but not 1 because then this would be useless)
-All maps names should have quotes around them, and commas after the ending quotes
-Here is my example I use for my guesswho server:
-local maps = {"gm_1950s_town", "gm_arena_submerge", "gm_metro_plaza", "gm_gwpark"}
-MAKE SURE TO PUT YOUR DEFAULT MAP IN HERE, or else it will not work (It does not have to be the first one, but should be in there)--]]
-local maps = {"gm_construct", "gm_flatgrass"}
-
-
---Amount of time, in seconds, it will announce to the players what the next map will be
-local AnnounceTime = 180
-
-
---Should console debug messages be on? Before reporting problems, turn this on to make sure you just didn't type the map wrong
---When using this, check to be sure that the current map is the right one, and that the next map is the right one
---In the future, I will add checking to make sure the maps exist, but for now, you have to do it manually
-
-local debug = false
+Made by ajgeiss0702 for AstroGmod GuessWho
 
 
 
@@ -36,17 +11,64 @@ local debug = false
 
 
 
---[[
---------------------------------------------------------------------------------
-Do not change anything below this line (unless you know what you are doing!)
---------------------------------------------------------------------------------
-]]--
 
 
 
+
+
+((--------------------------------------------------------------------------------))
+ | Do not change anything below this line (unless you know what you are doing!)   |
+((--------------------------------------------------------------------------------]]
+
+
+
+
+
+
+
+
+
+
+
+
+if SERVER then --Ignore this
+
+--Getting Config
+local maps = AMR.maps
+local AnnounceTime = AMR.AnnounceTime
+local debug = AMR.debug
+
+
+
+
+
+
+--check maps
+local maps = file.Find("maps/*.bsp", "GAME")
+local mapvalid = false
+for i,v in maps do
+	
+	
+	
+end
+
+util.AddNetworkString( "AnnNextMap" )
 local players = player.GetAll()
 
 
+local function notifyNextMap(nxtmap)
+	
+	--for k, ply in pairs( players ) do
+	
+	net.Start( "AnnNextMap" )
+		net.WriteString( nxtmap )
+	net.Broadcast()
+	 end
+end )
+	--end
+	
+--he he 69
+end
 
 
 	local curmap = game.GetMap()
@@ -69,20 +91,19 @@ local function nextmappick()
 					nextmap = maps[1]
 					found = true
 					PrintMessage( HUD_PRINTTALK, "The next map will be " .. nextmap)
-					--[[
+					----[[
 					
-					for k, v in pairs( player.GetAll() ) do
-						print( v:Nick() )
-					end
+					notifyNextMap(nextmap)
 
 					
-					]]--
+					--]]--
 					mapchanging = 1
 				else
 					RunConsoleCommand("nextlevel", maps[i+1])
 					nextmap = maps[i+1]
 					found = true
 					PrintMessage( HUD_PRINTTALK, "The next map will be " .. nextmap)
+					notifyNextMap(nextmap)
 				end
 			end
 		end
@@ -140,7 +161,7 @@ hook.Add( "PlayerSay", "CustomCommands", function( ply, text, public )
 	
 	if ( text == "!nextmap" ) then
 		ply:ChatPrint( "The next map will be " .. nextmap )
-		--print( "[DEBUG]", "A player typed the radio command!" )
+		notifyNextMap(nextmap)
 
 		return ""
 	end 
