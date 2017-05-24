@@ -31,7 +31,7 @@ Made by ajgeiss0702 for AstroGmod GuessWho
 
 
 
---if SERVER then --Ignore this
+if SERVER then --Ignore this
 
 --Getting Config
 local mr_AMR_maps = AMR_maps
