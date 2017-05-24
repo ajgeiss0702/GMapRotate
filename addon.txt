@@ -1,0 +1,11 @@
+"AddonInfo"
+{
+	"name"				"AutoMapRotate"
+	"version"			"idk"
+	"up_date"			"someday"
+	"author_name"			"ajgeiss0702"
+	"author_email"			"ajgeiss72@gmail.com"
+	"author_url"			"maprotate.ajg0702.us"
+	"info"				"Map rotator"
+	"override"			"0"
+}
