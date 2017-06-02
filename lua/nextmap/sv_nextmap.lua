@@ -44,9 +44,9 @@ local debug = AMR_debug
 
 
 --check AMR_maps
-local mapcheck = file.Find("AMR_maps/*.bsp", "GAME")
+local mapcheck = file.Find("maps/*.bsp", "GAME")
 local mapvalid = false
---for i,v in AMR_maps do
+--for i,v in maps do
 	
 	
 	
@@ -89,7 +89,7 @@ local function nextmappick()
 					RunConsoleCommand("nextlevel", AMR_maps[1])
 					nextmap = AMR_maps[1]
 					found = true
-					PrintMessage( HUD_PRINTTALK, "The next map will be " .. nextmap)
+					--PrintMessage( HUD_PRINTTALK, "The next map will be " .. nextmap)
 					----[[
 					
 					notifyNextMap(nextmap)
@@ -108,7 +108,7 @@ local function nextmappick()
 					RunConsoleCommand("nextlevel", AMR_maps[i+1])
 					nextmap = AMR_maps[i+1]
 					found = true
-					PrintMessage( HUD_PRINTTALK, "The next map will be " .. nextmap)
+					--PrintMessage( HUD_PRINTTALK, "The next map will be " .. nextmap)
 					notifyNextMap(nextmap)
 				end
 			end
@@ -149,10 +149,10 @@ end
 nextmappick()	
 	
 local function spawn( ply )
-	--sleep(10)
-	PrintMessage( HUD_PRINTTALK, "The next map will be " .. nextmap )
+	--PrintMessage( HUD_PRINTTALK, "The next map will be " .. nextmap )
+	notifyNextMap(nextmap)
 end
-hook.Add( "PlayerInitialSpawn", "some_unique_name", spawn )
+hook.Add( "PlayerInitialSpawn", "SpawnNextMapAlert", spawn )
 
 
 function mapannounce ()
@@ -160,6 +160,7 @@ function mapannounce ()
 	if debug then
 		print("[DEBUG] The next map will be " .. nextmap )
 	end
+	--notifyNextMap(nextmap)
 	
 end
 
