@@ -34,7 +34,7 @@ Made by ajgeiss0702 for AstroGmod GuessWho
 if SERVER then --Ignore this
 
 --Getting Config
-local mr_AMR_maps = AMR_maps
+--local AMR_maps = AMR_maps
 local AnnounceTime = AMR_AnnounceTime
 local debug = AMR_debug
 
@@ -80,14 +80,14 @@ local function nextmappick()
 	found = false
 	for i=1, 100 do
 		
-		if mr_AMR_maps[i] == nil then
+		if AMR_maps[i] == nil then
 			else if curmap == AMR_maps[i] then
 				if debug then
 					print("[DEBUG] Next map should be " .. AMR_maps[i+1])
 				end
-				if mr_AMR_maps[i+1] == nil then
-					RunConsoleCommand("nextlevel", mr_AMR_maps[1])
-					nextmap = mr_AMR_maps[1]
+				if AMR_maps[i+1] == nil then
+					RunConsoleCommand("nextlevel", AMR_maps[1])
+					nextmap = AMR_maps[1]
 					found = true
 					PrintMessage( HUD_PRINTTALK, "The next map will be " .. nextmap)
 					----[[
@@ -105,8 +105,8 @@ local function nextmappick()
 					
 					mapchanging = 1
 				else
-					RunConsoleCommand("nextlevel", mr_AMR_maps[i+1])
-					nextmap = mr_AMR_maps[i+1]
+					RunConsoleCommand("nextlevel", AMR_maps[i+1])
+					nextmap = AMR_maps[i+1]
 					found = true
 					PrintMessage( HUD_PRINTTALK, "The next map will be " .. nextmap)
 					notifyNextMap(nextmap)
@@ -140,7 +140,7 @@ local function nextmappick()
 		
 	end
 	if found then else
-	RunConsoleCommand("nextlevel", mr_AMR_maps[1])
+	RunConsoleCommand("nextlevel", AMR_maps[1])
 			nextmap = AMR_maps[1]
 	end
 	
