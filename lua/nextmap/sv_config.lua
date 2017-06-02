@@ -14,7 +14,7 @@ This is to makesure another addon will not be setting the variables.
 The maps, it is not limited to just 2, you can have more or less (but not 1 because then this would be useless)
 All maps names should have quotes around them, and commas after the ending quotes
 Here is my example I use for my guesswho server:
-local maps = {"gm_1950s_town", "gm_arena_submerge", "gm_metro_plaza", "gm_gwpark"}
+AMR_maps = {"gm_1950s_town", "gm_arena_submerge", "gm_metro_plaza", "gm_gwpark"}
 MAKE SURE TO PUT YOUR DEFAULT MAP IN HERE, or else it will not work (It does not have to be the first one, but should be in there)      ignore this--]]if SERVER then
 AMR_maps = {"gm_construct", "gm_flatgrass"}
 
