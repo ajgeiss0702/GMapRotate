@@ -45,6 +45,9 @@ AMR_debug = false
 
 
 
-if file.exists("gmaprotate/do_not_change/version.txt", "LUA")
-AMR-ver = file.read("gmaprotate/do_not_change/version.txt", "LUA")
+if file.Exists("gmaprotate/do_not_change/version.txt", "LUA") then
+	AMR_ver = file.read("gmaprotate/do_not_change/version.txt", "LUA")
+else
+	AMR_ver = 0
+end
 end

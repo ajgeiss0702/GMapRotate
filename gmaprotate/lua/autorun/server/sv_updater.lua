@@ -8,24 +8,33 @@ Thanks to crazyscouter for this! From here: https://github.com/crazyscouter/Repo
 
 
 ]]
-hook.Add("Initialize", "CheckStockVersion", function()
-	local url = "https://raw.githubusercontent.com/ajgeiss0702/GMapRotate/master/version.txt";
-	http.Fetch( url,
-		function( body, len, headers, code )
-			if (string.Trim(body) == AMR-ver) then return; end
-			if (AMR-ver > string.Trim(body)) then return; end
-			print("(============================VERSION=======================================)");
-			print("Your GMapRotate is out of date! Download the latest version here:");
-			print("https://github.com/ajgeiss0702/GMapRotate");
-			print("New version:", body);
-			print("Your version: ", AMR-ver);
-			print("(============================VERSION=======================================)");
+local function CheckAMRVersionFunc()
+
+	hook.Add("Initialize", "CheckAMRVersion", function()
+		local url = "https://raw.githubusercontent.com/ajgeiss0702/GMapRotate/master/version.txt";
+		http.Fetch( url,
+			function( body, len, headers, code )
+				print("github ver: " .. tostring(string.Trim(body)))
+				if (string.Trim(body) == AMR_ver) then return; end
+				if (AMR_ver > string.Trim(body)) then return; end
+				print("(============================VERSION=======================================)");
+				print("Your GMapRotate is out of date! Download the latest version here:");
+				print("https://github.com/ajgeiss0702/GMapRotate");
+				print("New version:", body);
+				print("Your version: ", AMR-ver);
+				print("(============================VERSION=======================================)");
 				
-		end,
-		function( error )
-			print(error)
-		end
-		);
-	print("local ver: " .. AMR-ver)
-	print("github ver: " .. body)
-end)
+			end,
+			function( error )
+				print(error)
+			end
+			);
+		print("local ver: " .. AMR_ver)
+		--print("github ver: " .. git_ver) moved into function
+	end)
+	
+end
+
+
+--Timer.Simple(5, CheckAMRVersionFunc() end)
+Timer.Simple(5, CheckAMRVersionFunc() end)
