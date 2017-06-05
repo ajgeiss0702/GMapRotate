@@ -7,15 +7,17 @@ Made by ajgeiss0702 for AstroGmod GuessWho
 
 
 
-AMR. before the variables stand for AutoMapRotate (or rotator)
+AMR_ before the variables stand for AutoMapRotate (or rotator)
 This is to makesure another addon will not be setting the variables.
+If another addon is setting these, make an issue on the github page here: https://github.com/ajgeiss0702/GMapRotate/issues
+
 
 
 The maps, it is not limited to just 2, you can have more or less (but not 1 because then this would be useless)
 All maps names should have quotes around them, and commas after the ending quotes
-Here is my example I use for my guesswho server:
-AMR_maps = {"gm_1950s_town", "gm_arena_submerge", "gm_metro_plaza", "gm_gwpark"}
-MAKE SURE TO PUT YOUR DEFAULT MAP IN HERE, or else it will not work (It does not have to be the first one, but should be in there)      ignore this--]]if SERVER then
+Here is my example I use for my guesswho server:     ]]
+--AMR_maps = {"gm_1950s_town", "gm_arena_submerge", "gm_metro_plaza", "gm_gwpark"}
+--[[MAKE SURE TO PUT YOUR DEFAULT MAP IN HERE (the one is your startup script), or else it will not work (It does not have to be the first one, but should be in there)                      ignore this--]]if SERVER then
 AMR_maps = {"gm_construct", "gm_flatgrass"}
 
 
@@ -29,5 +31,20 @@ AMR_AnnounceTime = 180
 
 AMR_debug = false
 
---ignore
+
+
+
+
+
+
+-- READ=THIS==READ=THIS==READ=THIS==READ=THIS==READ=THIS
+
+--Ignore and DO NOT CHANGE anything after this!
+
+-- READ=THIS==READ=THIS==READ=THIS==READ=THIS==READ=THIS
+
+
+
+if file.exists("gmaprotate/do_not_change/version.txt", "LUA")
+AMR-ver = file.read("gmaprotate/do_not_change/version.txt", "LUA")
 end
