@@ -8,7 +8,8 @@ Thanks to crazyscouter for this! From here: https://github.com/crazyscouter/Repo
 
 
 ]]
-local function CheckAMRVersionFunc()
+Timer.Simple(5, function
+
 
 	hook.Add("Initialize", "CheckAMRVersion", function()
 		local url = "https://raw.githubusercontent.com/ajgeiss0702/GMapRotate/master/version.txt";
@@ -17,24 +18,23 @@ local function CheckAMRVersionFunc()
 				print("github ver: " .. tostring(string.Trim(body)))
 				if (string.Trim(body) == AMR_ver) then return; end
 				if (AMR_ver > string.Trim(body)) then return; end
-				print("(============================VERSION=======================================)");
-				print("Your GMapRotate is out of date! Download the latest version here:");
+				print(" ")
+				print("(============================VERSION================================)");
+				print("GMapRotate is out of date! Download the latest version here:");
 				print("https://github.com/ajgeiss0702/GMapRotate");
 				print("New version:", body);
 				print("Your version: ", AMR-ver);
-				print("(============================VERSION=======================================)");
-				
+				print("(============================VERSION================================)");
+				print(" ")
 			end,
 			function( error )
 				print(error)
 			end
 			);
 		print("local ver: " .. AMR_ver)
-		--print("github ver: " .. git_ver) moved into function
+		
 	end)
 	
-end
-
+end)
 
 --Timer.Simple(5, CheckAMRVersionFunc() end)
-Timer.Simple(5, CheckAMRVersionFunc() end)
