@@ -8,7 +8,7 @@ Thanks to crazyscouter for this! From here: https://github.com/crazyscouter/Repo
 
 
 ]]
-Timer.Simple(5, function
+Timer.Simple(5, function()
 
 
 	hook.Add("Initialize", "CheckAMRVersion", function()
