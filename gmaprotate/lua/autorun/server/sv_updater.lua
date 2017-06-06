@@ -8,9 +8,10 @@ Thanks to crazyscouter for this! From here: https://github.com/crazyscouter/Repo
 
 
 ]]
-Timer.Simple(5, function()
+timer.Simple(30, function()
 
-
+	print(" ")
+	print(" ")
 	hook.Add("Initialize", "CheckAMRVersion", function()
 		local url = "https://raw.githubusercontent.com/ajgeiss0702/GMapRotate/master/version.txt";
 		http.Fetch( url,
@@ -23,7 +24,7 @@ Timer.Simple(5, function()
 				print("GMapRotate is out of date! Download the latest version here:");
 				print("https://github.com/ajgeiss0702/GMapRotate");
 				print("New version:", body);
-				print("Your version: ", AMR-ver);
+				print("Your version: ", AMR_ver);
 				print("(============================VERSION================================)");
 				print(" ")
 			end,
@@ -32,6 +33,8 @@ Timer.Simple(5, function()
 			end
 			);
 		print("local ver: " .. AMR_ver)
+		print(" ")
+		print(" ")
 		
 	end)
 	
