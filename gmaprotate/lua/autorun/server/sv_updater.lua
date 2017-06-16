@@ -8,11 +8,12 @@ Thanks to crazyscouter for this! From here: https://github.com/crazyscouter/Repo
 
 
 ]]
-timer.Simple(30, function()
+
 
 	print(" ")
 	print(" ")
-	hook.Add("Initialize", "CheckAMRVersion", function()
+	hook.Add("InitPostEntity", "CheckAMRVersion", function()
+		timer.Simple(5, function()
 		local url = "https://raw.githubusercontent.com/ajgeiss0702/GMapRotate/master/version.txt";
 		http.Fetch( url,
 			function( body, len, headers, code )
