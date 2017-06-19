@@ -39,6 +39,7 @@ AMR_TimedRotate = false
 
 --Only works if above is true
 -- The amount of time (in MINUTES) until the next map change
+-- You can put a decimal
 AMR_TimedRotate_time = 5
 
 

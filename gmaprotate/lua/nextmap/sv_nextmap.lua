@@ -37,10 +37,18 @@ if SERVER then --Checks to make sure it is server who is running this; will just
 --local AMR_maps = AMR_maps
 local AnnounceTime = AMR_AnnounceTime
 local debug = AMR_debug
+if debug then
+	print("[GMR DEBUG] sv_nextmap.lua is running!")
+end
+if debug then
+	print("[GMR DEBUG] maps: " .. tostring(AMR_maps) .. ", announcetime: " .. tostring(AnnounceTime) .. ", debug: " .. tostring(debug))
+end
 
---print("maps: " .. tostring(AMR_maps) .. ", announcetime: " .. tostring(AnnounceTime) .. ", debug: " .. tostring(debug))
-
-
+--[[
+if debug then
+	print("[GMR DEBUG] ")
+end
+]]
 
 
 --[[check AMR_maps (WIP)
@@ -169,9 +177,10 @@ timer.Create( "ServerAnnouncer", AnnounceTime, 0, function()  mapannounce() end 
 
 hook.Add( "PlayerSay", "CustomCommands", function( ply, text, public )
 	text = string.lower( text ) -- ignores cases
-	
-	
 	if ( text == "!nextmap" ) then
+		if debug then
+			print("[GMR DEBUG] Command ran!")
+		end
 		ply:ChatPrint( "The next map will be " .. nextmap )
 		ajnotify("Next map is" .. nextmap)
 
@@ -186,6 +195,9 @@ end )
 
 --Timed rotator
 if AMR_TimedRotate then
+	if debug then
+		print("[GMR DEBUG] TimedRotate enabled!")
+	end
 	local timerotate_stime = AMR_TimedRotate_time*60
 	timer.Simple(timerotate_stime-60, function() 
 	ajnotify("Map changing to "..nextmap.." in 1 minute")

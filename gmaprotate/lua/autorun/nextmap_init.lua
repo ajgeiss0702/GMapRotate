@@ -1,4 +1,4 @@
---[[print(" ")
+print(" ")
 print(" ")
 print(" ")
 print(" ")
@@ -6,7 +6,7 @@ print("GMapRotate init is running!")
 print(" ")
 print(" ")
 print(" ")
-print(" ") ]]
+print(" ") --]]
 AddCSLuaFile( "nextmap/cl_nextmap.lua" )
 
 if SERVER then

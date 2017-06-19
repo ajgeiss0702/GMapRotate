@@ -14,12 +14,13 @@ Thanks to crazyscouter for this! From here: https://github.com/crazyscouter/Repo
 	print(" ")
 	hook.Add("InitPostEntity", "CheckAMRVersion", function()
 		timer.Simple(5, function()
-		local url = "https://raw.githubusercontent.com/ajgeiss0702/GMapRotate/master/version.txt";
+		local url = "https://raw.githubusercontent.com/ajgeiss0702/GMapRotate/master/gmaprotate/do_not_change/version.txt";
 		http.Fetch( url,
 			function( body, len, headers, code )
+				local gitver = tonumber(string.Trim(body))
 				print("github ver: " .. tostring(string.Trim(body)))
-				if (string.Trim(body) == AMR_ver) then return; end
-				if (AMR_ver > string.Trim(body)) then return; end
+				if (gitver == AMR_ver) then return; end
+				if (AMR_ver > gitver) then return; end
 				print(" ")
 				print("(============================VERSION================================)");
 				print("GMapRotate is out of date! Download the latest version here:");
@@ -41,4 +42,6 @@ Thanks to crazyscouter for this! From here: https://github.com/crazyscouter/Repo
 	
 end)
 
---Timer.Simple(5, CheckAMRVersionFunc() end)
+--Timer.Simple(60, CheckAMRVersionFunc() end)
+
+--]]
