@@ -31,7 +31,7 @@ Made by ajgeiss0702 for AstroGmod GuessWho
 
 
 
-if SERVER then --Ignore this
+if SERVER then --Checks to make sure it is server who is running this; will just throw errors on client
 
 --Getting Config
 --local AMR_maps = AMR_maps
@@ -43,25 +43,25 @@ local debug = AMR_debug
 
 
 
---check AMR_maps
+--[[check AMR_maps (WIP)
 local mapcheck = file.Find("maps/*.bsp", "GAME")
 local mapvalid = false
---for i,v in maps do
+for i,v in maps do
 	
 	
 	
---end
+end]]
 
 util.AddNetworkString( "AnnNextMap" )
 local players = player.GetAll()
 
 
-local function notifyNextMap(nxtmap)
+local function ajnotify(string)
 	
 	--for k, ply in pairs( players ) do
 	
 	net.Start( "AnnNextMap" )
-		net.WriteString( nxtmap )
+		net.WriteString( string )
 	net.Broadcast()
 
 	--end
@@ -92,7 +92,7 @@ local function nextmappick()
 					--PrintMessage( HUD_PRINTTALK, "The next map will be " .. nextmap)
 					----[[
 					
-					notifyNextMap(nextmap)
+					ajnotify("Next map is" .. nextmap)
 
 					
 					--]]--
@@ -109,7 +109,7 @@ local function nextmappick()
 					nextmap = AMR_maps[i+1]
 					found = true
 					--PrintMessage( HUD_PRINTTALK, "The next map will be " .. nextmap)
-					notifyNextMap(nextmap)
+					ajnotify("Next map is" .. nextmap)
 				end
 			end
 		end
@@ -150,7 +150,7 @@ nextmappick()
 	
 local function spawn( ply )
 	--PrintMessage( HUD_PRINTTALK, "The next map will be " .. nextmap )
-	notifyNextMap(nextmap)
+	ajnotify("Next map is" .. nextmap)
 end
 hook.Add( "PlayerInitialSpawn", "SpawnNextMapAlert", spawn )
 
@@ -160,7 +160,7 @@ function mapannounce ()
 	if debug then
 		print("[DEBUG] The next map will be " .. nextmap )
 	end
-	--notifyNextMap(nextmap)
+	--ajnotify("Next map is" .. nextmap)
 	
 end
 
@@ -168,12 +168,12 @@ timer.Create( "ServerAnnouncer", AnnounceTime, 0, function()  mapannounce() end 
 
 
 hook.Add( "PlayerSay", "CustomCommands", function( ply, text, public )
-	text = string.lower( text ) -- Make the chat message entirely lowercase
+	text = string.lower( text ) -- ignores cases
 	
 	
 	if ( text == "!nextmap" ) then
 		ply:ChatPrint( "The next map will be " .. nextmap )
-		notifyNextMap(nextmap)
+		ajnotify("Next map is" .. nextmap)
 
 		return ""
 	end 
@@ -183,4 +183,60 @@ end )
 
 
 
+
+--Timed rotator
+if AMR_TimedRotate then
+	local timerotate_stime = AMR_TimedRotate_time*60
+	timer.Simple(timerotate_stime-60, function() 
+	ajnotify("Map changing to "..nextmap.." in 1 minute")
+	)
+	timer.Simple(timerotate_stime-30, function() 
+	ajnotify("Map changing to "..nextmap.." in 30 seconds")
+	)
+	timer.Simple(timerotate_stime-15, function() 
+	ajnotify("Map changing to "..nextmap.." in 15 seconds")
+	)
+	timer.Simple(timerotate_stime-10, function() 
+	ajnotify("Map changing to "..nextmap.." in 10 seconds")
+	)
+	timer.Simple(timerotate_stime-5, function() 
+	ajnotify("Map changing to "..nextmap.." in 5 seconds")
+	)
+	timer.Simple(timerotate_stime-4, function() 
+	ajnotify("Map changing to "..nextmap.." in 4 seconds")
+	)
+	timer.Simple(timerotate_stime-3, function() 
+	ajnotify("Map changing to "..nextmap.." in 3 seconds")
+	)
+	timer.Simple(timerotate_stime-2, function() 
+	ajnotify("Map changing to "..nextmap.." in 2 seconds")
+	)
+	timer.Simple(timerotate_stime-1, function() 
+	ajnotify("Map changing to "..nextmap.." in 1 seconds")
+	)
+	timer.Simple(timerotate_stime, function() 
+	ajnotify("Map changing to "..nextmap.." now")
+	nextmappick()
+	RunConsoleCommand("changelevel", nextmap)
+	)
+	
 end
+
+
+
+
+
+
+
+
+
+
+
+end
+
+
+
+
+
+
+

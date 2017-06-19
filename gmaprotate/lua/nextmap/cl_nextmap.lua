@@ -25,11 +25,10 @@ if CLIENT then
 
 
 net.Receive( "AnnNextMap", function()
-	local nextmap = net.ReadString()
-	local nm_msg = "Next map is " .. nextmap
-	notification.AddLegacy( nm_msg, NOTIFY_GENERIC, 3 )
+	local string = net.ReadString()
+	notification.AddLegacy( string, NOTIFY_GENERIC, 3 )
 	surface.PlaySound( "buttons/button15.wav" )
-	Msg( nm_msg .. "\n" )
+	Msg( string .. "\n" )
 end )
 end
 

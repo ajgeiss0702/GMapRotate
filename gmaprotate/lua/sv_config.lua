@@ -32,6 +32,40 @@ AMR_AnnounceTime = 180
 AMR_debug = false
 
 
+-- For gamemodes that do not change the map automatically
+-- True = on    false = off
+AMR_TimedRotate = false
+
+
+--Only works if above is true
+-- The amount of time (in MINUTES) until the next map change
+AMR_TimedRotate_time = 5
+
+
+
+
+
+
+--End of config
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -49,5 +83,6 @@ if file.Exists("gmaprotate/do_not_change/version.txt", "LUA") then
 	AMR_ver = file.read("gmaprotate/do_not_change/version.txt", "LUA")
 else
 	AMR_ver = 0
+	print("Error getting version: File does not exist!")
 end
 end
