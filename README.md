@@ -34,5 +34,5 @@ TODO
 
 * Map validation
 * Edit config in-game
-* Add rotator after certain time (for other gamemodes)
+* ~~Add rotator after certain time (for other gamemodes)~~ Added!
 * Give me suggestions my emailing me! ajgeiss72@gmail.com
