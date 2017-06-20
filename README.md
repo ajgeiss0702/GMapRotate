@@ -20,8 +20,7 @@ Installation
 5. Restart the server or change the map
 6. Check that it worked by typing `!nextmap` in chat (should say what the next map will be)
 7. Enjoy!
-NOTE: This addon only works with a gamemode that reloads the map every couple of rounds. This will do nothing in a sandbox server
-Sometime I will add a feature for it to work in sandbox (or other gamemodes) but thats not for a little while
+
 
 
 Configuration
