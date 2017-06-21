@@ -51,31 +51,53 @@ end
 ]]
 
 
---[[check AMR_maps (WIP)
-local mapcheck = file.Find("maps/*.bsp", "GAME")
-local mapvalid = false
-for i,v in maps do
-	
-	
-	
-end]]
+
 
 util.AddNetworkString( "AnnNextMap" )
 local players = player.GetAll()
 
 
 local function ajnotify(string)
-	
-	--for k, ply in pairs( players ) do
-	
+
 	net.Start( "AnnNextMap" )
 		net.WriteString( string )
 	net.Broadcast()
-
-	--end
 	
---he he 69
 end
+
+
+--he he 69
+local function mapinvalid(invalmap)
+	
+	print(" ")
+	print(" ")
+	print(" ")
+	print(" ")
+	print(" ")
+	print("(=========================INVALID MAP=========================)")
+	print(" ")
+	print("The map you entered into GMapRotate's config is invalid!")
+	print("Please check your spelling, and that you ARE subscribed to the addon.")
+	print(" ")
+	print("|                                                 |")
+	print("\/ Check this ( it is what you put in the config) \/")
+	print("                " .. invalmap)
+	print(" ")
+	print("The config is located (relitive to addon foler) here:")
+	print("     gmaprotate/lua/sv_config.lua")
+	print(" ")
+	print("(=========================INVALID MAP=========================)")
+	print(" ")
+	print(" ")
+	print(" ")
+	print(" ")
+	print(" ")
+	
+	timer.Simple(60, mapinvalid(invalmap))
+end
+
+
+
 
 
 	local curmap = game.GetMap()
@@ -152,10 +174,32 @@ local function nextmappick()
 			nextmap = AMR_maps[1]
 	end
 	
+	
+	--check maps (WIP)
+	local nextmapcheck = string.lower(nextmap)
+	local mapcheck = file.Find("maps/*.bsp", "GAME")
+	local mapvalid = false
+	for i,v in mapcheck do
+		
+		if string.lower(i) == nextmapcheck then
+			mapvalid =  true
+		end
+		
+	end
+	if mapvalid == false then
+		
+		mapinvalid(nextmap)
+		
+	end
+	
 end
 
+
+
 nextmappick()	
-	
+
+
+
 local function spawn( ply )
 	--PrintMessage( HUD_PRINTTALK, "The next map will be " .. nextmap )
 	ajnotify("Next map is" .. nextmap)
