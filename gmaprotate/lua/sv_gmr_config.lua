@@ -81,7 +81,7 @@ AMR_TimedRotate_time = 5
 
 
 if file.Exists("addons/gmaprotate/do_not_change/version.txt", "GAME") then
-	AMR_ver = file.read("addons/gmaprotate/do_not_change/version.txt", "GAME")
+	AMR_ver = file.Read("addons/gmaprotate/do_not_change/version.txt", "GAME")
 	CreateConVar("gmr_version", tostring(AMR_ver), "FCVAR_NONE", "GMapRotate version.")
 	
 else
