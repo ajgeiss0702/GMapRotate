@@ -30,6 +30,14 @@ net.Receive( "AnnNextMap", function()
 	surface.PlaySound( "buttons/button15.wav" )
 	Msg( string .. "\n" )
 end )
+
+net.Receive( "NextMapCD", function()
+	local string = net.ReadString()
+	notification.AddLegacy( string, NOTIFY_GENERIC, 1 )
+	surface.PlaySound( "buttons/button15.wav" )
+	Msg( string .. "\n" )
+end )
+
 end
 
 
