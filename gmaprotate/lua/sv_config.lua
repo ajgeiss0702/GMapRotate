@@ -80,8 +80,8 @@ AMR_TimedRotate_time = 5
 
 
 
-if file.Exists("gmaprotate/do_not_change/version.txt", "LUA") then
-	AMR_ver = file.read("gmaprotate/do_not_change/version.txt", "LUA")
+if file.Exists("addons/gmaprotate/do_not_change/version.txt", "GAME") then
+	AMR_ver = file.read("addons/gmaprotate/do_not_change/version.txt", "GAME")
 else
 	AMR_ver = 0
 	print("Error getting version: File does not exist!")
