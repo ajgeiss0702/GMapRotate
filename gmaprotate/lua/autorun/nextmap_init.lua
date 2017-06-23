@@ -10,7 +10,7 @@ print(" ") --]]
 AddCSLuaFile( "gmaprotate/cl_nextmap.lua" )
 
 if SERVER then
-	include("sv_config.lua")
+	include("sv_gmr_config.lua")
     include("gmaprotate/sv_nextmap.lua")
 end
 
