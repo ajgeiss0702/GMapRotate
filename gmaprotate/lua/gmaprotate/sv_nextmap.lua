@@ -113,6 +113,7 @@ local function mapinvalid(invalmap)
 	print(" ")
 	print(" ")
 	
+	--timer.Simple(60, mapinvalid(invalmap))
 end
 
 
@@ -127,7 +128,7 @@ local function nextmappick()
 		print("[DEBUG] Current map is " .. curmap)
 	end
 	found = false
-	for i=1, tablelength(AMR_maps) do
+	for i=1,tablelength(AMR_maps) do
 		
 		if AMR_maps[i] == nil then
 			else if curmap == AMR_maps[i] then
