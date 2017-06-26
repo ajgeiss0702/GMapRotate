@@ -113,7 +113,6 @@ local function mapinvalid(invalmap)
 	print(" ")
 	print(" ")
 	
-	timer.Simple(60, mapinvalid(invalmap))
 end
 
 
