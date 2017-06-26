@@ -202,7 +202,7 @@ local function nextmappick()
 	local nextmapcheck = string.lower(nextmap)
 	local mapcheck = file.Find("maps/*.bsp", "GAME")
 	local mapvalid = false
-	for i=1, tablelength(mapcheck) AMR_MapsNumber do
+	for i=1,tablelength(mapcheck) do
 		
 		if string.lower(mapcheck[i]) == nextmapcheck then
 			mapvalid =  true
@@ -218,8 +218,9 @@ local function nextmappick()
 end
 
 
-
-nextmappick()	
+timer.Simple(10, function()
+	nextmappick()
+end )
 
 
 

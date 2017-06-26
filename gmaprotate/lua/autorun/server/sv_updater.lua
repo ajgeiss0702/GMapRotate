@@ -17,8 +17,8 @@ local function chkgmrver()
 				if debug then
 					print("[GMR DEBUG] github ver: " .. tostring(string.Trim(body)))
 				end
-				if (gitver == AMR_ver) then return; end
-				if (AMR_ver > gitver) then return; end
+				if (gitver == tonumber(AMR_ver)) then return; end
+				if (tonumber(AMR_ver) > gitver) then return; end
 				print(" ")
 				print(" ")
 				print(" ")
