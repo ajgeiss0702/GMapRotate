@@ -104,7 +104,7 @@ local function mapinvalid(invalmap)
 	print("                " .. invalmap)
 	print(" ")
 	print("The config is located (relitive to addon foler) here:")
-	print("     gmaprotate/lua/sv_config.lua")
+	print("     gmaprotate/lua/sv_gmr_config.lua")
 	print(" ")
 	print("(=========================INVALID MAP=========================)")
 	print(" ")
@@ -112,7 +112,7 @@ local function mapinvalid(invalmap)
 	print(" ")
 	print(" ")
 	print(" ")
-	
+	RunConsoleCommand("nextlevel", "NONE: INVALID MAP")
 	--timer.Simple(60, mapinvalid(invalmap))
 end
 
@@ -199,11 +199,11 @@ local function nextmappick()
 	
 	
 	--check maps (WIP)
-	local nextmapcheck = string.lower(nextmap)
+	local nextmapcheck = string.lower(nextmap)..".bsp"
 	local mapcheck = file.Find("maps/*.bsp", "GAME")
 	local mapvalid = false
 	for i=1,tablelength(mapcheck) do
-		
+		--print("[AMR DEBUG] "..i..": "..mapcheck[i])
 		if string.lower(mapcheck[i]) == nextmapcheck then
 			mapvalid =  true
 		end

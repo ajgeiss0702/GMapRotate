@@ -15,7 +15,7 @@ local function chkgmrver()
 			function( body, len, headers, code )
 				local gitver = tonumber(string.Trim(body))
 				if debug then
-					print("[GMR DEBUG] github ver: " .. tostring(string.Trim(body)))
+					--print("[GMR DEBUG] github ver: " .. tostring(string.Trim(body)))
 				end
 				if (gitver == tonumber(AMR_ver)) then return; end
 				if (tonumber(AMR_ver) > gitver) then return; end
@@ -39,11 +39,11 @@ local function chkgmrver()
 			end
 			);
 			if debug then
-				print("[GMR DEBUG] local ver: " .. AMR_ver)
+				--print("[GMR DEBUG] local ver: " .. AMR_ver)
 			end
-		print(" ")
-		print(" ")
-		print(" ")
+		--print(" ")
+		--print(" ")
+		--print(" ")
 		
 	end)
 end
