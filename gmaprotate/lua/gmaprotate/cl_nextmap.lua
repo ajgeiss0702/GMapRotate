@@ -38,14 +38,14 @@ if CLIENT then
 		draw.DrawText("Map will change in " .. GMR_recvString .. " seconds!")
 	end
 	
-	vgui.Register( "MyFirstPanel", PANEL, "Panel" )
+	vgui.Register( "TimeLeftGui", PANEL, "Panel" )
 	
 	
 	
 	
 	net.Receive( "OpenMapGui", function()
 		GMR_recvString = net.ReadString()
-		local pnl = vgui.Create( "MyFirstPanel", parentpanel )
+		local pnl = vgui.Create( "TimeLeftGui", parentpanel )
 	end )
 	
 	
