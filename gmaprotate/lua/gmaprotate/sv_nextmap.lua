@@ -77,11 +77,15 @@ local function ajnotify(string)
 	
 end
 
-local function ajnotifyCD(string)
-
+local function ajnotifyCD(string, left)
+	local timeleft = left or 100
 	net.Start( "NextMapCD" )
 		net.WriteString( string )
 	net.Broadcast()
+	if timeleft < 5
+		net.Start( "OpenMapGui" )
+			net.WriteString( timeleft )
+	end
 	
 end
 
